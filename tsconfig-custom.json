@@ -1,0 +1,10 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "./dist/js/",
+    "strict": true,
+    "sourceMap": true,
+    "removeComments": true
+  }
+}

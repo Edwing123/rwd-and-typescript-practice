@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./dist/styles/main.css" />
+    <title>Working with promises</title>
+
+    <!-- metadata -->
+    <base href="/" />
+    <link rel="cannonical" href="" />
+    <meta name="author" content="Edwing123" />
+    <meta name="keywords" content="Responsive web design practice, RWD practice, HTML CSS and TypeScript" />
+    <meta name="description" content="This is a website to pratice responsive web design and also to practice TypeScript and DOM manipulations" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navigation" id="navigation" data-navigation-active="false">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="/" class="navigation__link" aria-label="home page">
+              <span class="navigation__text">
+                Home
+              </span>
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a href="/" class="navigation__link" aria-label="about page">
+              <span class="navigation__text">
+                About
+              </span>
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a href="/" class="navigation__link" aria-label="blog page">
+              <span class="navigation__text">
+                Blog
+              </span>
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a href="/" class="navigation__link" aria-label="contact page">
+              <span class="navigation__text">
+                Contact us
+              </span>
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" id="toggleSettings" aria-label="settings" tabindex="0">
+              <span class="navigation__text">
+                Settings
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="main">
+        <div class="main__wrapper">
+          <header class="main__header">
+            <h1 class="pageTitle">Employees section</h1>
+            <form class="searchForm">
+              <div class="searchForm__group">
+                <label class="searchForm__label" for="searchBox" id="searchBoxLabel">search term</label>
+                <input
+                  type="text"
+                  class="searchForm__input"
+                  placeholder="search here"
+                  id="searchBox"
+                  aria-labelledby="searchBoxLabel"
+                />
+              </div>
+            </form>
+            <span class="menuButton" id="menuButton" role="button" aria-label="menu button" tabindex="0">
+              <svg version="1.1" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512">
+                <circle style="fill:#303C42;" cx="256" cy="64" r="64"/>
+                <circle style="fill:#1E88E5;" cx="256" cy="64" r="42.667"/>
+                <circle style="fill:#303C42;" cx="256" cy="256" r="64"/>
+                <circle style="fill:#1E88E5;" cx="256" cy="256" r="42.667"/>
+                <circle style="fill:#303C42;" cx="256" cy="448" r="64"/>
+                <circle style="fill:#1E88E5;" cx="256" cy="448" r="42.667"/>
+                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-40.8684" y1="637.3581" x2="-28.5378" y2="631.6107" gradientTransform="matrix(21.3333 0 0 -21.3333 996.3334 13791.667)">
+              	<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0.2"/>
+              	<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+                </linearGradient>
+                <path style="fill:url(#SVGID_1_);" d="M256,128c35.292,0,64-28.708,64-64S291.292,0,256,0s-64,28.708-64,64S220.708,128,256,128z
+              	 M256,192c-35.292,0-64,28.708-64,64s28.708,64,64,64s64-28.708,64-64S291.292,192,256,192z M256,384c-35.292,0-64,28.708-64,64
+              	s28.708,64,64,64s64-28.708,64-64S291.292,384,256,384z"/>
+                <g>
+              </svg>
+            </span>
+          </header>
+
+          <section class="main__content">
+            <h2 class="main__subTitle">Employees information will be listed below</h2>
+            <div class="employees__container" id="employees__container">
+              <progress id="employees__progress__loader" class="employees__progress__loader">
+                Loading
+              </progress>
+            </div>
+          </section>
+
+          <footer class="main__footer">
+            <p class="main__content__text">&copy; All rights reserved 2020</p>
+            <p class="main__content__text main__content__text--noMargin">
+              Visit our website <a href="https://kalwak.cr/" target="_blank" rel="noopener noreferrer">Kalwak</a> to get us in touch.
+            </p>
+          </footer>
+        </div>
+
+        <!-- settings section -->
+        <section class="settings" id="settings" data-settings-active="false">
+          <header class="settings__header">
+            <span class="settings__title">Settings</span>
+            <button class="settings__closeButton" id="closeSettings">&times;</button>
+          </header>
+          <div class="settings__body">
+            <div class="settings__field">
+              <label
+                for="setting-1"
+                class="settings__label"
+              >
+                Active dark mode
+              </label>
+              <input
+                type="checkbox"
+                class="settings__checkbox"
+                id="setting-1"
+              />
+            </div>
+            <div class="settings__field">
+              <label
+                for="setting-2"
+                class="settings__label"
+              >
+                Stop transitions
+              </label>
+              <input
+                type="checkbox"
+                class="settings__checkbox"
+                id="setting-2"
+              />
+            </div>
+            <div class="settings__field">
+              <label
+                for="setting-3"
+                class="settings__label"
+              >
+                No styles
+              </label>
+              <input
+                type="checkbox"
+                class="settings__checkbox"
+                id="setting-3"
+              />
+            </div>
+            <div class="settings__field">
+              <label
+                for="setting-4"
+                class="settings__label"
+              >
+                Remove animations when loading data
+              </label>
+              <input
+                type="checkbox"
+                class="settings__checkbox"
+                id="setting-4"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" charset="utf-8"></script>
+    <script src="./dist/js/main.js" charset="utf-8"></script>
+  </body>
+</html>

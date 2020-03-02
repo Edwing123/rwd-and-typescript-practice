@@ -1,0 +1,112 @@
+/* settings component */
+
+.settings {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: var(--settings-bg-color);
+  border-radius: var(--settings-roundness);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: all 500ms ease;
+}
+
+.settings--open {
+  top: 30%;
+}
+
+.settings__header {
+  padding: 10px;
+  margin: 0 0 20px;
+  background-color: var(--settings-header-bg-color);
+  @include apply-flex-box();
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings__title {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  @include apply-no-user-select();
+}
+
+.settings__closeButton {
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 28px;
+  color: #fff;
+  background-color: transparent;
+  transition: background-color 200ms linear;
+  outline: none;
+}
+
+.settings__closeButton:hover, .settings__closeButton:focus {
+  background-color: var(--settings-bg-color);
+}
+
+.settings__body {
+}
+
+.settings__field {
+  margin: 0 0 26px;
+  padding: 0 20px;
+  @include apply-flex-box();
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.settings__label {
+  font-size: 2rem;
+  margin: 0 12px 0 0;
+  @include apply-no-user-select();
+}
+
+.settings__label:hover {
+  color: #ddd;
+}
+
+.settings__label::selection {
+  background-color: #34bf49;
+}
+
+.settings__checkbox {
+  -webkit-appearance: none;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+  background-color: #9f9fa3;
+  transition: all 150ms linear;
+}
+
+.settings__checkbox:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 150ms linear;
+}
+
+.settings__checkbox:focus {
+  outline: 2px solid #0091cb;
+  outline-offset: 2px;
+}
+
+.settings__checkbox:checked {
+  background-color: #34bf49;
+}
+
+.settings__checkbox:checked:before {
+  left: 50%;
+}

@@ -1,0 +1,103 @@
+.employees__container {
+  min-height: 300px;
+  @include apply-flex-box();
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.employees__progress__loader {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 300px;
+  height: 20px;
+}
+
+.employees__progress__loader--hidden {
+  display: none;
+}
+
+.employee {
+  width: 19%;
+  margin: 0 0 50px;
+  @include apply-animation($name: zoomOut, $duration: 600ms, $fill-mode: forwards);
+  cursor: pointer;
+  background-color: #eff3f6;
+  border: 1px solid #d7d7d8;
+  border-radius: 4px;
+  transition: box-shadow 200ms ease;
+}
+
+.employee:hover {
+  box-shadow: 0 4px 12px #c9c9c9;
+}
+
+.employee__body {
+    padding: 0 10px;
+}
+
+.employee__image {
+  display: block;
+  width: 70px;
+  margin: -30px auto 0;
+  padding: 6px;
+  position: relative;
+  border: 1px solid #d7d7d8;
+  background-color: #eff3f6;
+  border-radius: 50%;
+}
+
+.employee__name {
+  text-align: center;
+  font-size: 2rem;
+  margin: 6px 0 20px;
+}
+
+.employee__information {
+  font-size: 1.7rem;
+}
+
+.employee__informationData {
+  display: block;
+  margin: 0 0 8px;
+  padding: 6px;
+  border-radius: 30px;
+  color: #fff;
+  background-color: #34bf49;
+}
+
+/* .employess__progress__indicator:indeterminate {
+  background: #76b852;
+} */
+
+// large screens
+@media only screen and (max-width: 1300px) {
+  .employee {
+    width: 24%;
+  }
+}
+
+
+// medium screes
+@media only screen and (max-width: 1000px) {
+  .employee {
+    width: 32%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .employee {
+    width: 45%;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .employees__container {
+    justify-content: center;
+  }
+
+  .employee {
+    width: 80%;
+  }
+}

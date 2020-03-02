@@ -1,0 +1,45 @@
+@mixin apply-flex-box {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+@mixin apply-no-user-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin apply-animation($name, $duration: 500ms, $it-count: 1, $delay: 0ms,  $t-function: linear, $fill-mode: none) {
+  animation: $name $duration $it-count $delay;
+  animation-fill-mode: $fill-mode;
+  animation-timing-function: $t-function;
+}
+
+@mixin apply-clear-fix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin no-label {
+  visibility: hidden;
+  height: 0;
+  position: absolute;
+}
+
+@mixin reset-input {
+  border: none;
+  outline: none;
+  background-color: #ccc;
+}
+
+@mixin apply-cool-outline-on-focus {
+  &:focus {
+    outline: 2px solid #2d9df7;
+  }
+}
